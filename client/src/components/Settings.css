@@ -1,0 +1,180 @@
+.settings {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .settings {
+  background: rgba(50, 50, 50, 0.95);
+}
+
+.settings h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00796b;
+}
+
+body.dark .settings h1 {
+  color: #80deea;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.settings-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #00796b;
+}
+
+body.dark .settings-section h2 {
+  color: #80deea;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.setting-item label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  min-width: 140px;
+}
+
+body.dark .setting-item label {
+  color: #f0f0f0;
+}
+
+.color-light {
+  color: #333 !important;
+}
+
+.color-dark {
+  color: #f0f0f0 !important;
+}
+
+.label-text {
+  color: #333 !important;
+}
+
+body.dark .label-text {
+  color: #f0f0f0 !important;
+}
+
+.setting-item select {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  color: #333;
+}
+
+body.dark .setting-item select {
+  background-color: #424242;
+  color: #f0f0f0;
+  border-color: #666;
+}
+
+.setting-item select:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 8px rgba(0, 121, 107, 0.2);
+  outline: none;
+}
+
+.pet-selector {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.pet-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.pet-option:hover {
+  border-color: #00796b;
+  transform: scale(1.05);
+}
+
+.pet-option.selected {
+  border-color: #00796b;
+  background: rgba(0, 121, 107, 0.1);
+}
+
+.pet-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.save-settings-button {
+  background-color: #00796b;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.save-settings-button:hover {
+  background-color: #00695c;
+  transform: scale(1.05);
+}
+
+.settings-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.back-home-button {
+  background-color: #ccc;
+  color: #333;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+body.dark .back-home-button {
+  background-color: #666;
+  color: #f0f0f0;
+}
+
+.back-home-button:hover {
+  background-color: #bbb;
+  transform: scale(1.05);
+}
+
+body.dark .back-home-button:hover {
+  background-color: #888;
+}

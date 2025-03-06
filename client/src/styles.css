@@ -1,0 +1,327 @@
+/* Use Montserrat as default, but allow dynamic changes */
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background-color 0.3s, font-family 0.3s;
+}
+
+body.light {
+  color: #333;
+}
+
+body.dark {
+  color: #f0f0f0;
+}
+
+/* Background themes for light mode */
+body.light.theme-teal {
+  background: linear-gradient(135deg, #e0f7fa 0%, #f5f5f5 100%);
+}
+
+body.light.theme-purple {
+  background: linear-gradient(135deg, #ede7f6 0%, #d1c4e9 100%);
+}
+
+body.light.theme-blue {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+/* Background themes for dark mode */
+body.dark.theme-teal {
+  background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+}
+
+body.dark.theme-purple {
+  background: linear-gradient(135deg, #311b92 0%, #4527a0 100%);
+}
+
+body.dark.theme-blue {
+  background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.auth-container,
+.dashboard,
+.settings {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-container:hover,
+.dashboard:hover,
+.settings:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .auth-container,
+body.dark .dashboard,
+body.dark .settings {
+  background: rgba(50, 50, 50, 0.95);
+}
+
+h1,
+h2,
+h3 {
+  color: inherit;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00796b;
+}
+
+body.dark h1 {
+  color: #80deea;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+textarea,
+select,
+button {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 8px rgba(0, 121, 107, 0.2);
+  outline: none;
+}
+
+button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #00695c;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.goal-list .goal-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.goal-list .goal-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .goal-list .goal-item {
+  border-bottom: 1px solid #666;
+  background: rgba(70, 70, 70, 0.8);
+}
+
+/* Card animation */
+.card {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Rank container and image */
+.rank-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 5px 0;
+}
+
+.rank-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid #00796b;
+}
+
+/* Consistency for pet and rank containers */
+.pet-container,
+.rank-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.goal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.goal-icon {
+  font-size: 1.5rem;
+}
+
+.success-rate {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00796b 0%, #4dd0e1 100%);
+  transition: width 0.5s ease-in-out;
+}
+
+.quick-stats {
+  padding: 20px;
+}
+
+.quick-action-button {
+  background-color: #ffca28;
+  color: #333;
+}
+
+.quick-action-button:hover {
+  background-color: #ffb300;
+}
+
+.achievements-section {
+  padding: 20px;
+}
+
+.badge-list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-image {
+  width: 50px;
+  height: 50px;
+}
+
+.quote-section {
+  text-align: center;
+  font-style: italic;
+  color: #00796b;
+}
+
+body.dark .quote-section {
+  color: #80deea;
+}
+
+.social-share-overview {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-share-overview h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.share-button {
+  background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.share-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.share-button i {
+  font-size: 1.2rem;
+}
+
+.insights {
+  padding: 20px;
+}
+
+.insights-card {
+  margin-bottom: 20px;
+}
+
+/* Ensure chart canvas uses the correct font */
+canvas {
+  font-family: inherit;
+}
