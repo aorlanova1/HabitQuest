@@ -1,4 +1,4 @@
-require('dotenv').config({ path: 'C:\\Users\\aryan\\Documents\\habitquest\\.env' });
+require('dotenv').config();
 console.log('MONGO_URI:', process.env.MONGO_URI);
 const express = require('express');
 const cors = require('cors');
@@ -12,7 +12,9 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://74.208.11.61:3000'  
+}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -28,4 +30,4 @@ app.use('/api/goals', goalRoutes(transporter));
 app.use('/api/settings', settingsRoutes);
 
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT,'0.0.0.0', () => console.log(`Server running on port ${PORT}`));
