@@ -15,7 +15,7 @@ const Settings = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    axios.get('/api/auth/user', { headers: { 'x-auth-token': token } })
+    axios.get('http://74.208.11.61:5001/api/auth/user', { headers: { 'x-auth-token': token } })
       .then(res => {
         setColorScheme(res.data.colorScheme);
         setPetType(res.data.petType);
@@ -30,7 +30,7 @@ const Settings = () => {
   const handleSave = async () => {
     const token = localStorage.getItem('token');
     try {
-      await axios.put('/api/settings', {
+      await axios.put('http://74.208.11.61:5001/api/settings', {
         colorScheme,
         petType,
         notifications,

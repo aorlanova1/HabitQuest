@@ -5,7 +5,7 @@ const GoalList = ({ goals, setGoals, onGoalCompleted }) => {
   const handleComplete = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await axios.put(`/api/goals/${id}`, { completed: true }, { headers: { 'x-auth-token': token } });
+      const res = await axios.put(`http://74.208.11.61:5001/api/goals/${id}`, { completed: true }, { headers: { 'x-auth-token': token } });
       setGoals(prev => prev.map(goal => goal._id === id ? res.data : goal));
       if (onGoalCompleted) onGoalCompleted();
     } catch (err) {

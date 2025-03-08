@@ -5,8 +5,10 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 module.exports = (transporter) => {
+console.log("Im hit!");
   router.post('/register', async (req, res) => {
     const { email, username, password } = req.body;
+	console.log("Im hit!");
     try {
       let user = await User.findOne({ email });
       if (user) return res.status(400).json({ msg: 'Email already exists' });

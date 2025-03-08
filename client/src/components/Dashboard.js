@@ -26,8 +26,8 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const [goalsRes, userRes] = await Promise.all([
-          axios.get('/api/goals', { headers: { 'x-auth-token': token } }),
-          axios.get('/api/auth/user', { headers: { 'x-auth-token': token } })
+          axios.get('http://74.208.11.61:5001/api/goals', { headers: { 'x-auth-token': token } }),
+          axios.get('http://74.208.11.61:5001/api/auth/user', { headers: { 'x-auth-token': token } })
         ]);
         setGoals(goalsRes.data);
         setUser(userRes.data);

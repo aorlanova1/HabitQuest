@@ -16,7 +16,7 @@ const LoginForm = () => {
     console.log('Submitting login form:', { identifier, password });
 
     try {
-      const res = await axios.post('/api/auth/login', { identifier, password });
+      const res = await axios.post('http://74.208.11.61:5001/api/auth/login', { identifier, password });
       localStorage.setItem('token', res.data.token);
       navigate('/dashboard');
     } catch (err) {

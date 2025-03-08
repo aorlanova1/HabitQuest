@@ -20,7 +20,7 @@ const GoalForm = ({ setGoals, onGoalAdded }) => {
     const token = localStorage.getItem('token');
     const newGoal = { name, description, type: type, priority, icon, notes }; // Ensure 'frequency' is sent as 'type'
     try {
-      const res = await axios.post('/api/goals', newGoal, { headers: { 'x-auth-token': token } });
+      const res = await axios.post('http://74.208.11.61:5001/api/goals', newGoal, { headers: { 'x-auth-token': token } });
       setGoals(prev => [...prev, res.data]);
       setName('');
       setDescription('');
