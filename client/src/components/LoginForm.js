@@ -15,6 +15,11 @@ const LoginForm = () => {
 
     console.log('Submitting login form:', { identifier, password });
 
+    if (!identifier.trim() || !password.trim()) {
+      setError('Please fill in all fields');
+      return;
+    }
+
     try {
       const res = await axios.post('http://74.208.11.61:5001/api/auth/login', { identifier, password });
       localStorage.setItem('token', res.data.token);
