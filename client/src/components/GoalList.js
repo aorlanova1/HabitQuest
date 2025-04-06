@@ -13,6 +13,17 @@ const GoalList = ({ goals, setGoals, onGoalCompleted }) => {
     }
   };
 
+  const handleUndo = async (id) => {
+    const token = localStorage.getItem('token');
+    try {
+      const res = await axios.put(`http://74.208.11.61:5001/api/goals/${id}`, { completed: false }, { headers: { 'x-auth-token': token } });
+      setGoals(prev => prev.map(goal => goal._id === id ? res.data : goal));
+      if (onGoalCompleted) onGoalCompleted();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className="goal-list card">
       <h2>Your Goals</h2>
@@ -32,9 +43,15 @@ const GoalList = ({ goals, setGoals, onGoalCompleted }) => {
             <p>{goal.description}</p>
             <p>Type: {goal.type} | Priority: {goal.priority} | Streak: {goal.streak}</p>
             {goal.notes && <p><strong>Notes:</strong> {goal.notes}</p>}
-            <button onClick={() => handleComplete(goal._id)} disabled={goal.completed}>
-              {goal.completed ? 'Completed ✓' : 'Mark Complete'}
-            </button>
+            {goal.completed ? (
+              <button onClick={() => handleUndo(goal._id)} data-testid={`undo-${goal._id}`}>
+                Undo Complete
+              </button>
+            ) : (
+              <button onClick={() => handleComplete(goal._id)} disabled={goal.completed}>
+                Mark Complete
+              </button>
+            )}
           </div>
         ))
       )}
