@@ -18,7 +18,7 @@ const GoalForm = ({ setGoals, onGoalAdded }) => {
     }
 
     const token = localStorage.getItem('token');
-    const newGoal = { name, description, type: type, priority, icon, notes }; // Ensure 'frequency' is sent as 'type'
+    const newGoal = { name, description, type: type, priority, icon, notes };
     try {
       const res = await axios.post('http://74.208.11.61:5001/api/goals', newGoal, { headers: { 'x-auth-token': token } });
       setGoals(prev => [...prev, res.data]);
@@ -40,8 +40,9 @@ const GoalForm = ({ setGoals, onGoalAdded }) => {
       <h2>Add a New Goal</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Goal Name</label>
+          <label htmlFor="goal-name">Goal Name</label>
           <input
+            id="goal-name"
             type="text"
             placeholder="e.g., Drink 8 glasses of water"
             value={name}
@@ -50,16 +51,17 @@ const GoalForm = ({ setGoals, onGoalAdded }) => {
           />
         </div>
         <div className="form-group">
-          <label>Description</label>
+          <label htmlFor="description">Description</label>
           <textarea
+            id="description"
             placeholder="Describe your goal (optional)"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <div className="form-group">
-          <label>Type</label>
-          <select value={type} onChange={(e) => setType(e.target.value)}>
+          <label htmlFor="type">Type</label>
+          <select id="type" value={type} onChange={(e) => setType(e.target.value)}>
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
@@ -67,16 +69,16 @@ const GoalForm = ({ setGoals, onGoalAdded }) => {
           </select>
         </div>
         <div className="form-group">
-          <label>Priority</label>
-          <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+          <label htmlFor="priority">Priority</label>
+          <select id="priority" value={priority} onChange={(e) => setPriority(e.target.value)}>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
           </select>
         </div>
         <div className="form-group">
-          <label>Icon</label>
-          <select value={icon} onChange={(e) => setIcon(e.target.value)}>
+          <label htmlFor="icon">Icon</label>
+          <select id="icon" value={icon} onChange={(e) => setIcon(e.target.value)}>
             <option value="default">Default Icon</option>
             <option value="star">⭐ Star</option>
             <option value="heart">❤️ Heart</option>
@@ -86,8 +88,9 @@ const GoalForm = ({ setGoals, onGoalAdded }) => {
           </select>
         </div>
         <div className="form-group">
-          <label>Notes</label>
+          <label htmlFor="notes">Notes</label>
           <textarea
+            id="notes"
             placeholder="Notes (e.g., how did it go?)"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
